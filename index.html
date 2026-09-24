@@ -115,13 +115,21 @@
             <h2 id="building-account-title">Cuenta del edificio</h2>
             <p>Escanea el código QR para consultar los datos de la cuenta del Edificio Miraflores Norte.</p>
           </div>
-          <figure class="building-account__qr">
+          <button class="building-account__qr" type="button" aria-label="Ampliar código QR de la cuenta del edificio">
             <img src="images/qr_edificio_miraflores.jpeg" alt="Código QR de la cuenta del Edificio Miraflores Norte">
-          </figure>
+          </button>
         </section>
       </div>
     </section>
   </main>
+
+  <dialog class="qr-modal" aria-labelledby="qr-modal-title">
+    <div class="qr-modal__content">
+      <button class="qr-modal__close" type="button" aria-label="Cerrar código QR ampliado">&times;</button>
+      <h2 id="qr-modal-title">Cuenta del edificio</h2>
+      <img src="images/qr_edificio_miraflores.jpeg" alt="Código QR ampliado de la cuenta del Edificio Miraflores Norte">
+    </div>
+  </dialog>
 
   <footer class="footer">
     <div class="container footer__content">
@@ -135,5 +143,17 @@
       <p>Juntos hacemos un mejor lugar</p>
     </div>
   </footer>
+
+  <script>
+    const qrButton = document.querySelector('.building-account__qr');
+    const qrModal = document.querySelector('.qr-modal');
+    const qrModalClose = document.querySelector('.qr-modal__close');
+
+    qrButton.addEventListener('click', () => qrModal.showModal());
+    qrModalClose.addEventListener('click', () => qrModal.close());
+    qrModal.addEventListener('click', (event) => {
+      if (event.target === qrModal) qrModal.close();
+    });
+  </script>
 </body>
 </html>
