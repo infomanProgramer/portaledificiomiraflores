@@ -232,14 +232,20 @@ svg {
   font-weight: 700;
 }
 
-.document-card__icon--blue   { background: #1594e8; }
-.document-card__icon--green  { background: #2bb878; }
-.document-card__icon--orange { background: #f6a32b; }
-.document-card__icon--purple { background: #8c4ce0; }
-.document-card__icon--red    { background: #f0444c; }
-.document-card__icon--cyan   { background: #20b4bc; }
-.document-card__icon--indigo { background: #525bd9; }
-.document-card__icon--gray   { background: #718196; }
+.document-card__icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+/* The palette repeats automatically as document links are added. */
+.document-card:nth-child(8n + 1) .document-card__icon { background: #147d92; }
+.document-card:nth-child(8n + 2) .document-card__icon { background: #38875b; }
+.document-card:nth-child(8n + 3) .document-card__icon { background: #bb681e; }
+.document-card:nth-child(8n + 4) .document-card__icon { background: #6c5bb5; }
+.document-card:nth-child(8n + 5) .document-card__icon { background: #bd4b52; }
+.document-card:nth-child(8n + 6) .document-card__icon { background: #247eae; }
+.document-card:nth-child(8n + 7) .document-card__icon { background: #687b38; }
+.document-card:nth-child(8n) .document-card__icon { background: #765b49; }
 
 .document-card__body {
   min-width: 0;
