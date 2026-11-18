@@ -202,6 +202,17 @@
       </div>
     </section>
 
+    <section class="route-page" aria-live="polite" hidden>
+      <div class="container">
+        <div class="route-page__content">
+          <span class="building-account__eyebrow">Portal de documentos</span>
+          <h2 class="route-page__title"></h2>
+          <p class="route-page__description"></p>
+          <a class="route-page__link" target="_blank" rel="noopener noreferrer"></a>
+        </div>
+      </div>
+    </section>
+
     <section class="contacts" aria-labelledby="contacts-title">
       <div class="container">
         <h2 id="contacts-title">Contactos</h2>
@@ -266,6 +277,55 @@
   </footer>
 
   <script>
+    const documentsSection = document.querySelector('.documents');
+    const routePage = document.querySelector('.route-page');
+    const routeTitle = document.querySelector('.route-page__title');
+    const routeDescription = document.querySelector('.route-page__description');
+    const routeLink = document.querySelector('.route-page__link');
+    const documentRoutes = new Map(
+      [...document.querySelectorAll('.document-card')].map((card) => {
+        const title = card.querySelector('.document-card__body strong').textContent.trim();
+        const slug = title
+          .toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/^-|-$/g, '');
+
+        return [slug, { title, url: card.href }];
+      })
+    );
+
+    function renderRoute() {
+      const route = window.location.hash.replace(/^#\/?/, '').replace(/\/+$/, '');
+      const currentDocument = documentRoutes.get(route);
+
+      if (!route) {
+        documentsSection.hidden = false;
+        routePage.hidden = true;
+        return;
+      }
+
+      documentsSection.hidden = true;
+      routePage.hidden = false;
+
+      if (!currentDocument) {
+        routeTitle.textContent = 'Ruta no encontrada';
+        routeDescription.textContent = 'No existe una categoría de documentos para esta dirección.';
+        routeLink.hidden = true;
+        return;
+      }
+
+      routeTitle.textContent = currentDocument.title;
+      routeDescription.textContent = 'Consulta los archivos disponibles en esta categoría.';
+      routeLink.href = currentDocument.url;
+      routeLink.textContent = `Abrir ${currentDocument.title}`;
+      routeLink.hidden = false;
+    }
+
+    window.addEventListener('hashchange', renderRoute);
+    renderRoute();
+
     const qrButton = document.querySelector('.building-account__qr');
     const qrModal = document.querySelector('.qr-modal');
     const qrModalClose = document.querySelector('.qr-modal__close');
