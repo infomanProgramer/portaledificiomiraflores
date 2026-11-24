@@ -15,7 +15,7 @@ export default function PorteriaPage() {
     },
     {
       title: 'Comunicados',
-      url: 'https://drive.google.com/drive/u/1/folders/15bbkCD9AfGiAhfXWTSW8uF4ZSmdGk--u'
+      url: 'https://drive.google.com/drive/folders/1Iwf7LGrs6h8gEH5IVm0n9smLTlbwJnsa'
     }
   ];
   return (

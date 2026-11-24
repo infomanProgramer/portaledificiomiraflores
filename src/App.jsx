@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PorteriaPage from '../pages/PorteriaPage';
 import CommercialPage from '../pages/CommercialPage';
 import DomesticPage from '../pages/DomesticPage';
