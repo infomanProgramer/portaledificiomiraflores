@@ -10,10 +10,10 @@ export default function DocumentCard({ document }) {
             rel="noopener noreferrer"
         >
             <span className="document-card__icon">
-            <DocumentIcon />
+                <DocumentIcon />
             </span>
             <span className="document-card__body">
-            <strong>{document.title}</strong>
+                <strong>{document.title}</strong>
             </span>
             <span className="document-card__arrow" aria-hidden="true">›</span>
         </a>

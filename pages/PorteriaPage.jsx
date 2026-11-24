@@ -1,12 +1,46 @@
 import React from 'react';
+import BuildingAccount from '../components/BuildingAccount';
+import DocumentCard from '../components/DocumentCard';
+import Contacts from '../components/Contacts';
 
 export default function PorteriaPage() {
+  const documents = [
+    {
+      title: 'Reglamento Interno',
+      url: 'https://drive.google.com/drive/u/1/folders/1NllnLf0maT5tlfouwjFcvBCKkpBJO8Ol'
+    },
+    {
+      title: 'Manual de Funciones',
+      url: 'https://drive.google.com/drive/u/1/folders/1oip5ZQdPuXQCz5N_ldp5QcBV2XCFPlXd'
+    },
+    {
+      title: 'Comunicados',
+      url: 'https://drive.google.com/drive/u/1/folders/15bbkCD9AfGiAhfXWTSW8uF4ZSmdGk--u'
+    }
+  ];
   return (
-    <section className="documents">
+    <>
+      <section className="documents" aria-labelledby="documents-title">
       <div className="container">
-        <h2>Porteria</h2>
-        <p>Bienvenido a la sección de portería de nuestro sitio web. 2222</p>
+        <div className="intro">
+          <div className="intro__title">
+              <span className="intro__icon" aria-hidden="true">⌂</span>
+              <h2 id="documents-title">Bienvenido al portal del edificio - Administración</h2>
+          </div>
+          <p>
+              Aquí encontrarás toda la información y documentación
+              importante de nuestro edificio.
+          </p>
+        </div>
+        <nav className="document-grid" aria-label="Categorías de documentos">
+          {documents.map((document) => (
+            <DocumentCard key={document.title} document={document} />
+          ))}
+        </nav>
+        <BuildingAccount />
       </div>
-    </section>
+      </section>
+      <Contacts />
+    </>
   );
 }
