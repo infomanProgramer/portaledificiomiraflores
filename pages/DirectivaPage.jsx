@@ -14,7 +14,7 @@ export default function DirectivaPage() {
             url: 'https://drive.google.com/drive/folders/1YQcezioeRxFiJtjgWvtrWFZnGH_su4PQ?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto'
         },
         {
-            title: 'Expensas',
+            title: 'Facturas',
             url: 'https://drive.google.com/drive/folders/1V7sIaXIGIXoOLR6UdMT0ME1zwQmdnjtV?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto'
         },
         {

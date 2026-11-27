@@ -16,7 +16,11 @@ export default function PorteriaPage() {
     {
       title: 'Comunicados',
       url: 'https://drive.google.com/drive/folders/1Iwf7LGrs6h8gEH5IVm0n9smLTlbwJnsa'
-    }
+    },
+    {
+      title: 'Horarios de limpieza porteria',
+      url: 'https://drive.google.com/drive/folders/1ZqL6gWPdlILSpjJqf-pH58NXrgvWiIUW?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto'
+    },
   ];
   return (
     <>
